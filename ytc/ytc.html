@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>YTC Calculator</title>
+    <link rel="stylesheet" href="css/ytc.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="input">
+            <div id="form">
+                <h1>Yield Token Compounding</h1>
+                <label >Asset:</label>
+                <select id="asset">
+                    <option value="ETH">ETH</option>
+                    <option value="BTC">BTC</option>
+                    <option value="USDC">USDC</option>
+                </select>
+                <label >Speculated APY:</label>
+                <input id="speculated-apy" type="number" min="0" max="100" value="10.5">
+                <label >Target APY:</label>
+                <input id="target-apy" type="number" min="0" max="100" value="21">
+                <label >Term Length:</label>
+                <select id="term-length">
+                    <option value="90">90</option>
+                    <option value="120">120</option>
+                    <option value="180">180</option>
+                </select>
+                <label >Days Matured:</label>
+                <input id="days-matured" type="number" min="0" max="180" value="0">
+                <label >Liquidity:</label>
+                <input id="liquidity" type="number" min="0" value="10000000">
+                <input id="calculate" type="button" value="Calculate">
+            </div>
+        </div>
+        <div id="output">
+            <table id="results"></table>
+            <br>
+            <input id="back" type="button" value="Back">
+        </div>
+    </div>
+    <script src="js/ytc.js"></script>
+</body>
+
+</html>

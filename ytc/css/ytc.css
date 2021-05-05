@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0vh;
+    margin: 0;
+}
+
+#input {
+    position:relative;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    width: 400px;
+}
+
+#output {
+    position:relative;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    width: 700px;
+    visibility: hidden;
+}
+
+#form {
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 16px;
+}
+
+#form h1 {
+    padding: 5px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #111;
+    margin: -16px -16px 16px -16px;
+}
+
+#form input[type="number"] {
+    outline: none;
+    box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 2%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+}
+
+#form input[type="number"]:focus {
+    box-shadow: 0 0 5px #f0db4f;
+    padding: 3%;
+    border: 1px solid #f0db4f;
+}
+
+#form select{
+    outline: none;
+    box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 2%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+}
+
+#form select:focus {
+    box-shadow: 0 0 5px #f0db4f;
+    padding: 3%;
+    border: 1px solid #f0db4f;
+}
+
+#form input[type="button"] {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #007bff;
+    border-bottom: 2px solid #007bff;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+}
+
+#form input[type="button"]:hover {
+    background: #0069d9;
+    cursor: pointer;
+}
+
+#form input.success {
+    border-color: #c3e6cb
+}
+
+#results {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #results td, #results th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #results tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #results tr:hover {background-color: #ddd;}
+  
+  #results th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #007bff;
+    color: white;
+  }
+
+  #output input[type="button"] {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #007bff;
+    border-bottom: 2px solid #007bff;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+}
+
+#output input[type="button"]:hover {
+    background: #0069d9;
+    cursor: pointer;
+}
