@@ -33,7 +33,7 @@ function calculateRow(speculated_interest=10.5,input_amount=10,
     let x_before=x_after+output_amount
     pt_apy = (1-(fj / fi))/T * 100 + (1-1/(Math.pow((y_before+x_before)/x_before,t)))/T
 
-    let row = {Input:input_amount, PT_APY:pt_apy.toFixed(2), Resulting_PT_APY:resulting_pt_apy.toFixed(2), Expenditure: expenditure.toFixed(4), Received:received.toFixed(4), Gain:gain.toFixed(4), APY:apy.toFixed(2) }
+    let row = {Input:input_amount.toFixed(2), PT_APY:pt_apy.toFixed(2), Resulting_PT_APY:resulting_pt_apy.toFixed(2), Expenditure: expenditure.toFixed(4), Received:received.toFixed(4), Gain:gain.toFixed(4), APY:apy.toFixed(2) }
     return row
 }
 
