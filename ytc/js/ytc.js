@@ -2,11 +2,10 @@
 function calculateRow(speculated_interest=10,input_amount=10,
                days_maturity=90,days_matured=0,
                liquidity=50,time_stretch=11,
-               target_interest=20) {
+               target_interest=20, gas_fee=0.02888) {
     let t = (days_maturity-days_matured) / (365 * time_stretch)
     let T = (days_maturity-days_matured) / 365
     let g = .1
-    let gas_fee=0.0019
     let accumulated_interest = input_amount * days_matured/365 * speculated_interest/100
     let A = ((input_amount)*(speculated_interest/100)*T-(target_interest/1000)*input_amount*T-gas_fee)/input_amount
     let resulting_pt_apy = A/T*100
@@ -75,23 +74,27 @@ calculate.addEventListener('click', (event) => {
     let end=0
     let increment=0
     let price = 0
+    let gas_fee = 0
     if (assetElement.value == 'ETH'){
-        start=10
-        end=300
-        increment=10
+        start=5
+        end=30
+        increment=1
         price = 2500
+        gas_fee=38000*.0019/price
     }
     else if(assetElement.value == 'BTC'){
         start = .5
-        end = 3
+        end = 5
         increment = .1
-        price = 55000
+        price = 38000
+        gas_fee=.0019
     }
     else if(assetElement.value == 'USDC'){
-        start = 10000
+        start = 20000
         end = 200000
         increment = 10000
         price=1
+        gas_fee=38000*.0019/price
     }
     let base_liquidity = (parseFloat(liquidityElement.value)/2)/price
     for(let counter=start;counter<=end;counter+=increment){
@@ -101,7 +104,8 @@ calculate.addEventListener('click', (event) => {
                                 parseFloat(daysMaturedElement.value),
                                 base_liquidity,
                                 time_stretch,
-                                parseFloat(targetApyElement.value))
+                                parseFloat(targetApyElement.value),
+                                gas_fee)
         data.push(results)
     }
 
