@@ -66,36 +66,27 @@ const targetApyElement = document.getElementById("target-apy");
 const termLengthElement = document.getElementById("term-length");
 const daysMaturedElement = document.getElementById("days-matured");
 const liquidityElement = document.getElementById("liquidity");
+const gasPriceElement = document.getElementById("gas-price");
+const tradeSizeIncrementElement = document.getElementById("trade-size-increment");
+const tradeSizeLowerBoundElement = document.getElementById("trade-size-lb");
+const tradeSizeUpperBoundElement = document.getElementById("trade-size-ub");
 
 calculate.addEventListener('click', (event) => {
     let data = []
     let time_stretch = 3.09396 /( 0.02789 * parseFloat(speculatedApyElement.value))
-    let start=0
-    let end=0
-    let increment=0
+    let start=parseFloat(tradeSizeLowerBoundElement.value)
+    let end=parseFloat(tradeSizeUpperBoundElement.value)
+    let increment=parseFloat(tradeSizeIncrementElement.value)
     let price = 0
-    let gas_fee = 0
-    if (assetElement.value == 'ETH'){
-        start=5
-        end=30
-        increment=1
-        price = 2500
-        gas_fee=38000*.0019/price
+    let eth_price = 2500
+    if (assetElement.value == 'ETH') {
+      price = eth_price
+    } else if(assetElement.value == 'BTC') {
+      price = 38000
+    } else if(assetElement.value == 'USDC'){ 
+      price=1
     }
-    else if(assetElement.value == 'BTC'){
-        start = .5
-        end = 5
-        increment = .1
-        price = 38000
-        gas_fee=.0019
-    }
-    else if(assetElement.value == 'USDC'){
-        start = 20000
-        end = 200000
-        increment = 10000
-        price=1
-        gas_fee=38000*.0019/price
-    }
+    let gas_fee = eth_price * parseFloat(gasPriceElement.value)/price
     let base_liquidity = (parseFloat(liquidityElement.value)/2)/price
     for(let counter=start;counter<=end;counter+=increment){
         let results = calculateRow(parseFloat(speculatedApyElement.value),
